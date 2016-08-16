@@ -71,3 +71,10 @@ gulp.task('default', function(){
       gulp.run('style');
   });
 });
+
+//排除一些不需要的文件之后打包
+gulp.task('zip',function(){
+  gulp.src(['./zip/**/*','!zip/3/'])
+      .pipe(zip('test.zip'))
+      .pipe(gulp.dest('zip/'))
+})
